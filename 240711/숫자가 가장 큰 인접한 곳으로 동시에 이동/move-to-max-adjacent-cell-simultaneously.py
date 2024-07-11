@@ -6,7 +6,6 @@ for i in range(m):
     x = x-1
     y = y-1
     count[x][y] += 1
-
 def valid_cell(x, y):
     global n
     return (0 <= x < n) and (0 <= y < n)
@@ -20,11 +19,12 @@ def move_marble(x, y):
         nx = x + dxs[i]
         ny = y + dys[i]
         if valid_cell(nx, ny) and grid[nx][ny] > max_num:
+            max_num = grid[nx][ny]
             ox = nx
-            oy = nx
+            oy = ny
     return ox, oy
     
-for i in range(t):
+for i in range(1):
     new_count = [ [ 0 for i in range(n) ] for i in range(n) ]
     for i in range(n):
         for j in range(n):
@@ -35,10 +35,8 @@ for i in range(t):
     for i in range(n):
         for j in range(n):
             if new_count[i][j] >= 2:
-                new_count[i][j] == 0
-
+                new_count[i][j] = 0
     count = new_count
-
 marble_count = 0
 for i in range(n):
     for j in range(n):
