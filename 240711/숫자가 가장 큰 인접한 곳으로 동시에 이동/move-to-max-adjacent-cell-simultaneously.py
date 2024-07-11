@@ -34,7 +34,7 @@ for i in range(t):
             new_count[x][y] += 1
     for i in range(n):
         for j in range(n):
-            if new_count[i][j] >= 0:
+            if new_count[i][j] >= 2:
                 new_count[i][j] == 0
 
     count = new_count
