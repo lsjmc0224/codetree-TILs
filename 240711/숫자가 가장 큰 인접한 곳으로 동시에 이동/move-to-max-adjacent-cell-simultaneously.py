@@ -24,7 +24,7 @@ def move_marble(x, y):
             oy = ny
     return ox, oy
     
-for i in range(1):
+for i in range(t):
     new_count = [ [ 0 for i in range(n) ] for i in range(n) ]
     for i in range(n):
         for j in range(n):
