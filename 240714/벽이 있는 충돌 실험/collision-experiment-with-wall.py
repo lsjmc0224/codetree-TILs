@@ -51,7 +51,7 @@ for i in range(t):
         y = int(y) - 1
         base_grid[x][y] += d
 
-    for i in range(n**2):
+    for i in range(80):
         base_grid = after_collision_grid(move_balls_grid(base_grid))
 
     count = 0
