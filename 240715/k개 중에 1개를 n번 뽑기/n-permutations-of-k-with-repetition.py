@@ -1,4 +1,4 @@
-k, n = 3, 2
+k, n = map(int, input().split())
 answer = []
 
 def print_answer():
