@@ -2,19 +2,24 @@
 
 # 각 점의 좌표 순서대로 dictionary 로 따오기
 
-# 점의 개수대로 array 제작 (ex : [0, 1, 2, 3, 4, 5, 6]) , 0은 S, 6은 E좌표 나머지는 순서대로 
+# 점의 개수대로 array 제작 (ex : [0, 1, 2, 3, 4, 5, 400]) , 0은 S, 400은 E좌표 나머지는 순서대로 
+# N < 20이므로 400이상 넘어가는 코인 번호은 없다.
 
 # ======================================================================================
 
 # 두 점의 좌표 x1, y1, x2, y2가 주어졌을 때 두 점 사이 거리 구하는 함수 선언
 
-# navigation array 선언
-# answer = 0
+# navigation array 선언. 시작점은 (0)으로 고정
+# total distance array 선언 (총 이동거리에 대한 가능한 모든 경우의 수)
 
 # choose 함수 : array가 주어졌을 때, 0번째와 -1번째를 포함한 5개의 점의 조합 구하기
-    # distance = 0
-    # 다음 점이 정해지는대로 distance에 더하기
-    # 다 정해지면, answer 과 비교하여 answer > distance면 answer = distance
+    # 기저조건 : curry이 5인 경우 (출발, 도착지 포함 5개의 점을 지나고 난 후)
+    # 수행할 일 : 맨뒤가 400일 경우에만 distance 계산, 구한 distance를 total distance array에 append
+
+    # curr-1 번째까지 수를 집어넣었고, curr번째를 집어넣을 차례
+    # choose(curr + 1)로 재귀
+
+    # 시작은 choose(curr = 0)부터
 
 n = int(input())
 money_dic = {}
