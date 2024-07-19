@@ -23,4 +23,4 @@ def dfs():
 DFS_que.append((0,0))
 visited[0][0] = 1
 dfs()
-print(step[-1][-1] if step[-1][-1] else 0)
+print(step[-1][-1] if step[-1][-1] else -1)
