@@ -26,7 +26,6 @@ def dfs():
             if can_go(nxt_x, nxt_y) and not visited[nxt_x][nxt_y]:
                 visited[nxt_x][nxt_y] = 1
                 BFS_que.append((nxt_x,nxt_y))
-                dfs()
 
 BFS_que.append((0, 0))
 visited[0][0] = 1
