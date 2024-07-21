@@ -62,7 +62,7 @@ while 1:
 
 # comfort_zone 배열[-1]과 k 반환
 max_comfort_zone = max(comfort_zone_arr)
-for k in comfort_zone_arr:
-    if k == max_comfort_zone:
+for k in range(len(comfort_zone_arr)):
+    if comfort_zone_arr[k] == max_comfort_zone:
         break
 print(k, max_comfort_zone)
