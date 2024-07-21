@@ -8,17 +8,12 @@ n, m = map(int, input().split())
 house_height_arr = [ list(map(int, input().split())) for _ in range(n)]
 # visited 격자 만들기 (모두 0)
 
-# def flooded(i): flooded 격자 만들기 (잠겼으면 1 안잠겼으면 0)
+# 불필요 : def flooded(i): flooded 격자 만들기 (잠겼으면 1 안잠겼으면 0)
     # 격자 반환
-def is_flooded(k):
-    for i in range(n):
-        for j in range(m):
-            if house_height_arr[i][j] <= k:
-                flooded[i][j] = 1
 
 # def can_go(x,y) : (visited == 0 and flooded != 0 and 격자안벗어남) 확인
 def can_go(x,y):
-    return  (0 <= x < n) and (0 <= y <m) and visited[x][y] == 0 and flooded[x][y] == 0
+    return  (0 <= x < n) and (0 <= y <m) and visited[x][y] == 0 and house_height_arr[x][y] > k
 # def dfs(vertex): 안전영역탐색함수
     # dx, dy 테크닉
     # 모든 점에 대해
@@ -51,9 +46,7 @@ k = 1
     # k += 1
 while 1:
     count = 0
-    flooded = [[ 0 for _ in range(m)] for _ in range(n)]
     visited = [[ 0 for _ in range(m)] for _ in range(n)]
-    is_flooded(k)
     for i in range(n):
         for j in range(m):
             if can_go(i,j):
