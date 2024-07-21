@@ -55,14 +55,14 @@ while 1:
             if can_go(i,j):
                 dfs(i,j)
                 count += 1
+    comfort_zone_arr.append(count)
     if count == 0:
         break
-    comfort_zone_arr.append(count)
     k += 1
 
 # comfort_zone 배열[-1]과 k 반환
-max_comfort_zone = max(comfort_zone_arr)
-for k in range(len(comfort_zone_arr)):
-    if comfort_zone_arr[k] == max_comfort_zone:
+max_comfort_zone = max(comfort_zone_arr[1:])
+for i in range(1, len(comfort_zone_arr)):
+    if comfort_zone_arr[i] == max_comfort_zone:
         break
-print(k, max_comfort_zone)
+print(i, max_comfort_zone)
