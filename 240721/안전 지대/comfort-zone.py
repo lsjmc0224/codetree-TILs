@@ -1,3 +1,7 @@
+import sys
+
+sys.setrecursionlimit(10**5)
+
 # n, m 격자 받아오기
 n, m = map(int, input().split())
 # 1 <= 각 집의 높이격자 <= 100 받아오기
