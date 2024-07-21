@@ -57,9 +57,12 @@ while 1:
         break
     k += 1
 
-# comfort_zone 배열[-1]과 k 반환
-max_comfort_zone = max(comfort_zone_arr[1:])
-for i in range(1, len(comfort_zone_arr)):
-    if comfort_zone_arr[i] == max_comfort_zone:
-        break
-print(i, max_comfort_zone)
+max_comfort_zone = comfort_zone_arr[1]
+max_index = 1
+
+for i in range(2, len(comfort_zone_arr)):
+    if comfort_zone_arr[i] > max_comfort_zone:
+        max_comfort_zone = comfort_zone_arr[i]
+        max_index = i
+
+print(max_index, max_comfort_zone)
