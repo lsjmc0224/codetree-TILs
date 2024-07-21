@@ -8,22 +8,20 @@ input = sys.stdin.readline
 n, m = map(int, input().split())
 # 1 <= 각 집의 높이격자 <= 100 받아오기
 house_height_arr = [ list(map(int, input().split())) for _ in range(n)]
-# visited 격자 만들기 (모두 0)
-
+dxs = [0, 1, 0, -1]
+dys = [1, 0, -1, 0]
 # 불필요 : def flooded(i): flooded 격자 만들기 (잠겼으면 1 안잠겼으면 0)
     # 격자 반환
 
 # def can_go(x,y) : (visited == 0 and flooded != 0 and 격자안벗어남) 확인
 def can_go(x,y):
-    return  (0 <= x < n) and (0 <= y <m) and visited[x][y] == 0 and house_height_arr[x][y] > k
+    return (0 <= x < n) and (0 <= y < m) and house_height_arr[x][y] > k and visited[x][y] == 0
 # def dfs(vertex): 안전영역탐색함수
     # dx, dy 테크닉
     # 모든 점에 대해
         # can_go면 이동
         # visited = 1
 def dfs(x,y):
-    dxs = [0, 1, 0, -1]
-    dys = [1, 0, -1, 0]
     visited[x][y] = 1
     for i in range(4):
         nxt_x = x + dxs[i]
