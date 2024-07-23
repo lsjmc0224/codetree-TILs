@@ -1,12 +1,6 @@
 n = int(input())
 grid = [list(map(int, input().split())) for i in range(n)]
 
-def can_go(x, y):
-    return 0 <= x < n and 0 <= y < n
-
-def first_row(x, y):
-    return x == 0 or y == 0
-
 def dp(grid, n):
     arr = [ [0] * n for i in range(n) ]
     arr[0][0] = grid[0][0]
