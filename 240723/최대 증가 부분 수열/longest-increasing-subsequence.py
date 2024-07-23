@@ -1,8 +1,7 @@
 import sys
-MIN_NUM = -sys.maxsize
 
-n = 4
-inp_arr = [0] + [1, 3, 2, 4]
+n = int(input())
+inp_arr = [0] + list(map(int, input().split()))
 
 dp = [1] * (n + 1)  # 각 원소는 적어도 자기 자신 하나로 부분 수열을 구성할 수 있으므로 1로 초기화
 
