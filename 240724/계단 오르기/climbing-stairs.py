@@ -13,4 +13,4 @@ for i in range(4, n+1):
         pd_arr[i] += pd_arr[i-2]
     if pd_arr[i-3] != 0:
         pd_arr[i] += pd_arr[i-3]
-print(pd_arr[n])
+print(pd_arr[n] % 10007)
