@@ -2,8 +2,8 @@
 # grid 받아와
 # 그 크기만든 빈 arr 만들어
 
-n = 3
-grid = [[5, 2, 3],[3, 2, 1],[1, 2, 4]]
+n = int(input())
+grid = [list(map(int, input().split())) for i in range(n)]
 arr = [ [0] * n for i in range(n) ]
 arr[0][0] = grid[0][0]
 
