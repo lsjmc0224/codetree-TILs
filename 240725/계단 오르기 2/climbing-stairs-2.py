@@ -1,21 +1,26 @@
 def max_coins(n, coins):
-    # dp[i][j]는 i번째 계단에 도달했을 때, 1계단 오르기를 j번 사용한 경우의 최대 동전 수
-    dp = [[-float('inf')] * 4 for _ in range(n)]
-
-    # 초기 조건 설정
-    dp[0][0] = coins[0]
+    # 각 층의 동전 수를 1-indexed로 맞추기 위해 앞에 0을 추가합니다.
+    coins = [0] + coins
+    
+    # DP 테이블 초기화: dp[i][j]는 i번 위치에 도착했을 때, 정확히 j번 1계단 올랐을 때의 최대 가치
+    dp = [[0 for _ in range(5)] for _ in range(n + 1)]
+    
+    # 기본 케이스를 초기화합니다.
+    dp[1][1] = coins[1]
     if n > 1:
-        dp[1][1] = coins[1]
-
-    for i in range(2, n):
+        dp[2][0] = coins[2]
+        dp[2][2] = coins[1] + coins[2]
+    
+    # 동적 프로그래밍을 사용하여 최대 가치를 계산합니다.
+    for i in range(3, n + 1):
         for j in range(4):
-            if j < 3 and dp[i-1][j] != -float('inf'):  # 1계단 오르기
-                dp[i][j+1] = max(dp[i][j+1], dp[i-1][j] + coins[i])
-            if dp[i-2][j] != -float('inf'):  # 2계단 오르기
-                dp[i][j] = max(dp[i][j], dp[i-2][j] + coins[i])
-
-    # n-1층에서 얻을 수 있는 최대 동전 수 찾기
-    return max(dp[n-1])
+            if dp[i-2][j] != 0:
+                dp[i][j] = max(dp[i][j], dp[i - 2][j] + coins[i])
+            if j and dp[i - 1][j - 1] != 0:
+                dp[i][j] = max(dp[i][j], dp[i - 1][j - 1] + coins[i])
+    
+    # 가능한 모든 경우에서 최대 가치를 찾아 출력합니다.
+    return max(dp[n])
 
 # 예제 입력
 n1 = int(input())
